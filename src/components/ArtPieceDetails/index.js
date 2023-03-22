@@ -1,18 +1,26 @@
+import FavouriteButton from "@/components/FavouriteButton";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import ColorPalette from "../ColorPalette/index";
+import ColorPalette from "@/components/ColorPalette";
 
 function getNewHeight(width, height, size) {
   const ratio = width / height;
   return ratio * size;
 }
 
-export default function ArtPieceDetails({ pieces }) {
+export default function ArtPieceDetails({
+  pieces,
+  artPiecesInfo,
+  onToggleFavourite,
+}) {
   const router = useRouter();
   const { slug } = router.query;
   const currentPiece = pieces.find((piece) => {
     return piece.slug === slug;
   });
+  const isFavourite = artPiecesInfo.find(
+    (piece) => piece.slug === currentPiece.slug
+  )?.isFavourite;
   return (
     <div>
       <button
@@ -34,6 +42,11 @@ export default function ArtPieceDetails({ pieces }) {
           currentPiece.dimensions.height,
           390
         )}
+      />
+      <FavouriteButton
+        onToggleFavourite={onToggleFavourite}
+        isFavourite={isFavourite}
+        slug={currentPiece.slug}
       />
       <ul>
         <li>Artist: {currentPiece.artist}</li>
