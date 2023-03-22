@@ -22,7 +22,8 @@
     "styled-components": "^5.3.6",
     "swr": "^2.1.0",
     "uid": "^2.0.1",
-    "use-immer": "^0.8.1"
+    "use-immer": "^0.8.1",
+    "use-local-storage-state": "^18.2.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
