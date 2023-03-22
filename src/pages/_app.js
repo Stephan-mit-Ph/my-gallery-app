@@ -1,6 +1,7 @@
 import GlobalStyle from "@/styles";
 import useSWR, { SWRConfig } from "swr";
 import Layout from "@/components/Layout";
+import { useImmer } from "use-immer";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -22,6 +23,19 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
+  const [artPiecesInfo, updateArtPiecesInfo] = useImmer([]);
+
+  function handleToggleFavourite(slug) {
+    updateArtPiecesInfo((draft) => {
+      const piece = draft.find((piece) => piece.slug === slug);
+      if (piece) {
+        piece.isFavourite = !piece.isFavourite;
+      } else {
+        draft.push({ slug, isFavourite: true });
+      }
+    });
+  }
+
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
@@ -29,7 +43,12 @@ export default function App({ Component, pageProps }) {
     <Layout>
       <GlobalStyle />
       <SWRConfig value={{ fetcher }}>
-        <Component {...pageProps} pieces={data} />
+        <Component
+          {...pageProps}
+          pieces={data}
+          artPiecesInfo={artPiecesInfo}
+          onToggleFavourite={handleToggleFavourite}
+        />
       </SWRConfig>
     </Layout>
   );
