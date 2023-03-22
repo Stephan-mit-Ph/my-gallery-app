@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+//import { ColorPalette } from "../ColorPalette/index"
 
 
 function getNewHeight(width, height, size) {
@@ -33,14 +34,7 @@ export default function ArtPieceDetails({
         <li>Artist: {currentPiece.artist}</li>
         <li>Year: {currentPiece.year}</li>
         <li>Genre: {currentPiece.genre}</li>
-      </ul>
-      <div>
-        {currentPiece.colors.map((color) => {
-          return (
-            <div key={Math.random()} aria-label="color" style={{width:50, height:50, backgroundColor:`${color}`}}></div>
-          )
-        })}
-      </div>
+      </ul>     
     </div>
   );
 }
