@@ -30,9 +30,12 @@ export default function Navigation() {
     <StyledNav>
       <StyledNavLink href="/" aria-label="Go to spotlight art piece">
         Spotlight
-      </StyledNavLink>
+      </StyledNavLink>    
       <StyledNavLink href="/art-pieces/" aria-label="Go to all art pieces">
         Pieces
+      </StyledNavLink>
+      <StyledNavLink href="/favoritesPage" aria-label="Go to my Favorites">
+      Favorites
       </StyledNavLink>
     </StyledNav>
   );
