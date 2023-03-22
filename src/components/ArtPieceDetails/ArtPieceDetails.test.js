@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ArtPieceDetails from "@/pages/art-pieces";
+import ArtPieceDetails from ".";
 
 const testImage = {
   artist: "DaVinci",
@@ -10,6 +10,8 @@ const testImage = {
     width: 200,
     height: 200,
   },
+  colors: ["", "", "", "", ""],
+  slug: "test"
 };
 
 jest.mock("next/router", () => ({
@@ -17,6 +19,7 @@ jest.mock("next/router", () => ({
     return {
       push: jest.fn(),
       asPath: "/",
+      query: {slug:testImage.slug}
     };
   },
 }));
