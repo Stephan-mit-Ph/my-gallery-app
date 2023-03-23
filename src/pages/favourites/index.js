@@ -3,14 +3,14 @@ import ArtPieces from "@/components/ArtPieces";
 export default function FavoritePiecesPage({
   favouritePieces,
   artPiecesInfo,
-  onToggleFavorite,
+  onToggleFavourite,
   onSubmitComment,
 }) {
   return (
     <ArtPieces
       pieces={favouritePieces}
       artPiecesInfo={artPiecesInfo}
-      onToggleFavorite={onToggleFavorite}
+      onToggleFavourite={onToggleFavourite}
       onSubmitComment={onSubmitComment}
     />
   );
