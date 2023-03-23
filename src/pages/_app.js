@@ -49,7 +49,6 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleSubmitComment(slug, comment) {
-    console.log(artPiecesInfo);
     const currentDate = new Date().toLocaleDateString("de-DE");
     const currentTime = new Date().toJSON().slice(11, 19);
     updateArtPiecesInfo((draft) => {

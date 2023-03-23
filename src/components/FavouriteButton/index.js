@@ -28,7 +28,11 @@ export default function FavouriteButton({
   slug,
 }) {
   return (
-    <StyledButton type="button" onClick={() => onToggleFavourite(slug)}>
+    <StyledButton
+      type="button"
+      onClick={() => onToggleFavourite(slug)}
+      aria-label="favorite"
+    >
       {isFavourite ? (
         <StyledSvg
           key="favourite"

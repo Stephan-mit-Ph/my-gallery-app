@@ -1,14 +1,11 @@
-import FavouriteButton from "@/components/FavouriteButton";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import ColorPalette from "@/components/ColorPalette";
+import FavouriteButton from "@/components/FavouriteButton";
+import { getNewHeight } from "@/utils/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import CommentForm from "../CommentForm";
 import Comments from "../Comments";
-
-function getNewHeight(width, height, size) {
-  const ratio = width / height;
-  return ratio * size;
-}
 
 export default function ArtPieceDetails({
   pieces,
@@ -31,15 +28,9 @@ export default function ArtPieceDetails({
 
   return (
     <div>
-      <button
-        type="button"
-        aria-label="back to art pieces list"
-        onClick={() => {
-          router.push("/art-pieces");
-        }}
-      >
+      <Link href="/art-pages/" aria-label="Go back to art pages">
         Back
-      </button>
+      </Link>
       <h1>Title: {currentPiece.name}</h1>
       <Image
         src={currentPiece.imageSource}

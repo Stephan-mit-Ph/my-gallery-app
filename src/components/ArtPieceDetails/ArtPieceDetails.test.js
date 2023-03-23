@@ -1,36 +1,50 @@
 import { render, screen } from "@testing-library/react";
 import ArtPieceDetails from ".";
 
-const testImage = {
-  artist: "DaVinci",
-  year: 1500,
-  genre: "Renaissance",
-  image: "/",
-  dimensions: {
-    width: 200,
-    height: 200,
+const testPieces = [
+  {
+    artist: "Steve Johnson",
+    name: "Orange Red and Green Abstract Painting",
+    imageSource:
+      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
   },
-  colors: ["", "", "", "", ""],
-  slug: "test"
-};
+  {
+    artist: "Steve Johnson",
+    name: "Orange Red and Green Abstract Painting",
+    imageSource:
+      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
+  },
+  {
+    artist: "Steve Johnson",
+    name: "Orange Red and Green Abstract Painting",
+    imageSource:
+      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
+  },
+];
+
+const testInfo = [
+  {
+    slug: "clay-bust-sculptures",
+    isFavourite: true,
+  },
+  {
+    slug: "split-shot-of-whale",
+  },
+  {
+    slug: "woman-statue",
+  },
+];
 
 jest.mock("next/router", () => ({
   useRouter() {
     return {
-      push: jest.fn(),
-      asPath: "/",
-      query: {slug:testImage.slug}
+      query: { slug: testImages.slug },
     };
   },
 }));
 
 test("renders image, title, artist, year, genre", () => {
-  render(
-    <ArtPieceDetails
-      name={testImage.artist}
-      dimensions={testImage.dimensions}
-    />
-  );
+  render(<ArtPieceDetails pieces={testPieces} artPiecesInfo={testInfo} />);
   const title = screen.getByRole("heading", {
     name: /title/i,
   });
@@ -46,9 +60,9 @@ test("renders image, title, artist, year, genre", () => {
   expect(artist).toBeInTheDocument();
 });
 
-test("renders button", () => {
-  render(<ArtPieceDetails name={"DaVinci"} dimensions={{}} />);
-  const button = screen.getByRole("button");
+test("renders back link", () => {
+  render(<ArtPieceDetails pieces={testPieces} artPiecesInfo={testInfo} />);
+  const link = screen.getByRole("link", { name: /back/i });
 
-  expect(button).toBeInTheDocument();
+  expect(link).toBeInTheDocument();
 });
