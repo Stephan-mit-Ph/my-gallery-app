@@ -2,6 +2,8 @@ import FavouriteButton from "@/components/FavouriteButton";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ColorPalette from "@/components/ColorPalette";
+import CommentForm from "../CommentForm";
+import Comments from "../Comments";
 
 function getNewHeight(width, height, size) {
   const ratio = width / height;
@@ -12,6 +14,7 @@ export default function ArtPieceDetails({
   pieces,
   artPiecesInfo,
   onToggleFavourite,
+  onSubmitComment,
 }) {
   const router = useRouter();
   const { slug } = router.query;
@@ -21,6 +24,11 @@ export default function ArtPieceDetails({
   const isFavourite = artPiecesInfo.find(
     (piece) => piece.slug === currentPiece.slug
   )?.isFavourite;
+
+  const comments = artPiecesInfo.find(
+    (piece) => piece.slug === currentPiece.slug
+  )?.comments;
+
   return (
     <div>
       <button
@@ -54,6 +62,8 @@ export default function ArtPieceDetails({
         <li>Genre: {currentPiece.genre}</li>
       </ul>
       <ColorPalette colors={currentPiece.colors} />
+      <CommentForm slug={currentPiece.slug} onSubmitComment={onSubmitComment} />
+      <Comments comments={comments} />
     </div>
   );
 }

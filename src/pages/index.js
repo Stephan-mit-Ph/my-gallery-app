@@ -4,6 +4,7 @@ export default function SpotlightPage({
   pieces,
   onToggleFavourite,
   artPiecesInfo,
+  onSubmitComment,
 }) {
   return (
     <div>
@@ -11,6 +12,7 @@ export default function SpotlightPage({
         pieces={pieces}
         onToggleFavourite={onToggleFavourite}
         artPiecesInfo={artPiecesInfo}
+        onSubmitComment={onSubmitComment}
       />
     </div>
   );

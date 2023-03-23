@@ -6,6 +6,7 @@ export default function ArtPieces({
   pieces,
   onToggleFavourite,
   artPiecesInfo,
+  onSubmitComment,
 }) {
   return (
     <>
@@ -28,6 +29,7 @@ export default function ArtPieces({
                 slug={piece.slug}
                 onToggleFavourite={onToggleFavourite}
                 artPiecesInfo={artPiecesInfo}
+                onSubmitComment={onSubmitComment}
               />
             </Link>
           </div>
