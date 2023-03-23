@@ -34,6 +34,9 @@ export default function Navigation() {
       <StyledNavLink href="/art-pieces/" aria-label="Go to all art pieces">
         Pieces
       </StyledNavLink>
+      <StyledNavLink href="/favourites/" aria-label="Go to favorite art pieces">
+        Favorites
+      </StyledNavLink>
     </StyledNav>
   );
 }

@@ -29,6 +29,14 @@ export default function App({ Component, pageProps }) {
     { defaultValue: [] }
   );
 
+  const favouriteSlugs = artPiecesInfo
+    .filter((piece) => piece.isFavourite)
+    .map((favouritePiece) => favouritePiece.slug);
+
+  const favouritePieces = data?.filter((piece) =>
+    favouriteSlugs.includes(piece.slug)
+  );
+
   function handleToggleFavourite(slug) {
     updateArtPiecesInfo((draft) => {
       const piece = draft.find((piece) => piece.slug === slug);
@@ -41,12 +49,13 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleSubmitComment(slug, comment) {
+    console.log(artPiecesInfo);
     const currentDate = new Date().toLocaleDateString("de-DE");
     const currentTime = new Date().toJSON().slice(11, 19);
     updateArtPiecesInfo((draft) => {
       const piece = draft.find((piece) => piece.slug === slug);
       if (piece) {
-        piece?.comments.push({
+        piece.comments.push({
           text: comment,
           date: currentDate,
           time: currentTime,
@@ -79,6 +88,7 @@ export default function App({ Component, pageProps }) {
           artPiecesInfo={artPiecesInfo}
           onToggleFavourite={handleToggleFavourite}
           onSubmitComment={handleSubmitComment}
+          favouritePieces={favouritePieces}
         />
       </SWRConfig>
     </Layout>
