@@ -11,4 +11,17 @@ export default createGlobalStyle`
     margin: 0;
     font-family: system-ui;
   }
+
+  p {
+    hyphens: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  i {
+    font-size: 0.6rem;
+  }
 `;

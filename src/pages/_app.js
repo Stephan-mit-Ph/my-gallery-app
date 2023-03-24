@@ -1,7 +1,6 @@
 import GlobalStyle from "@/styles";
 import useSWR, { SWRConfig } from "swr";
 import Layout from "@/components/Layout";
-import { useImmer } from "use-immer";
 import { useImmerLocalStorageState } from "@/hook/useImmerLocalStorageState";
 
 const fetcher = async (url) => {
@@ -17,7 +16,6 @@ const fetcher = async (url) => {
 
   return response.json();
 };
-
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",

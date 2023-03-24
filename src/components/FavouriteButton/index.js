@@ -6,18 +6,23 @@ const path =
 const StyledButton = styled.button`
   background: transparent;
   border: none;
+  position: absolute;
 `;
 
 const StyledSvg = styled.svg`
-  fill: red;
-  background: black;
+  fill: lime;
+  stroke: black;
+  stroke-width: 2px;
+  background: transparent;
   width: 30px;
   height: 30px;
 `;
 
 const StyledSvgEmpty = styled.svg`
   fill: white;
-  background: black;
+  stroke: black;
+  stroke-width: 2px;
+  background: transparent;
   width: 30px;
   height: 30px;
 `;

@@ -11,7 +11,7 @@ const testImage = {
     height: 200,
   },
   colors: ["", "", "", "", ""],
-  slug: "test"
+  slug: "test",
 };
 
 jest.mock("next/router", () => ({
@@ -19,7 +19,7 @@ jest.mock("next/router", () => ({
     return {
       push: jest.fn(),
       asPath: "/",
-      query: {slug:testImage.slug}
+      query: { slug: testImage.slug },
     };
   },
 }));
