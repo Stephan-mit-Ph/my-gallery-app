@@ -46,11 +46,6 @@ export default function ArtPieceDetails({
         alt={currentPiece.name}
         width={390}
         height={390}
-        height={getNewHeight(
-          currentPiece.dimensions.width,
-          currentPiece.dimensions.height,
-          390
-        )}
       />
       <FavouriteButton
         onToggleFavourite={onToggleFavourite}

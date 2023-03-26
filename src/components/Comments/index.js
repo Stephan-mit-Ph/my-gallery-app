@@ -8,6 +8,7 @@ export default function Comments({ comments = [] }) {
           <li key={uid()}>
             <p>Comment: {comment.text}</p>
             <span>Date: {comment.date}</span>
+            <br></br>
             <span>Time: {comment.time}</span>
           </li>
         );
