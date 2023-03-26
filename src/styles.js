@@ -1,12 +1,16 @@
 import { createGlobalStyle } from "styled-components";
-//import { Work_Sans } from "@next/font/google";
+import { Work_Sans } from "@next/font/google";
 
-/*const WorkSans = Work_Sans({
+const WorkSans = Work_Sans({
   subsets: ["latin"],
   style: ["normal", "italic"],
-});*/
+});
 
 export default createGlobalStyle`
+
+:root{
+  --font-family: ${WorkSans.style.fontFamily}, serif;
+}
   *,
   *::before,
   *::after {
@@ -15,7 +19,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font-family)
   }
 
   a {
