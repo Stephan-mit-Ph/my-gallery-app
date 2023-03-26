@@ -49,17 +49,26 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleSubmitComment(slug, comment) {
-    console.log(artPiecesInfo);
     const currentDate = new Date().toLocaleDateString("de-DE");
     const currentTime = new Date().toJSON().slice(11, 19);
     updateArtPiecesInfo((draft) => {
       const piece = draft.find((piece) => piece.slug === slug);
       if (piece) {
-        piece.comments.push({
-          text: comment,
-          date: currentDate,
-          time: currentTime,
-        });
+        if (piece.comments) {
+          piece.comments.push({
+            text: comment,
+            date: currentDate,
+            time: currentTime,
+          });
+        } else {
+          piece.comments = [
+            {
+              text: comment,
+              date: currentDate,
+              time: currentTime,
+            },
+          ];
+        }
       } else {
         draft.push({
           slug,
