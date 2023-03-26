@@ -10,6 +10,7 @@ const StyledNav = styled.nav`
   display: flex;
   flex-direction: row;
   box-shadow: 0 0 8px;
+
 `;
 
 const StyledNavLink = styled(Link)`
@@ -17,8 +18,11 @@ const StyledNavLink = styled(Link)`
   color: unset;
   text-align: center;
   flex-grow: 1;
-  height: 100%;
-  transition: 0.1s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+  transition: 0.5s ease-in-out;
 
   &:hover {
     background: hotpink;

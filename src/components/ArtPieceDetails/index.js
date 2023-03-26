@@ -45,6 +45,7 @@ export default function ArtPieceDetails({
         src={currentPiece.imageSource}
         alt={currentPiece.name}
         width={390}
+        height={390}
         height={getNewHeight(
           currentPiece.dimensions.width,
           currentPiece.dimensions.height,
@@ -56,12 +57,13 @@ export default function ArtPieceDetails({
         isFavourite={isFavourite}
         slug={currentPiece.slug}
       />
-      <ul>
-        <li>Artist: {currentPiece.artist}</li>
-        <li>Year: {currentPiece.year}</li>
-        <li>Genre: {currentPiece.genre}</li>
-      </ul>
       <ColorPalette colors={currentPiece.colors} />
+      <ul>
+        <li><strong>Artist:</strong> {currentPiece.artist}</li>
+        <li><strong>Year:</strong> {currentPiece.year}</li>
+        <li><strong>Genre:</strong> {currentPiece.genre}</li>
+      </ul>
+      
       <CommentForm slug={currentPiece.slug} onSubmitComment={onSubmitComment} />
       <Comments comments={comments} />
     </div>
