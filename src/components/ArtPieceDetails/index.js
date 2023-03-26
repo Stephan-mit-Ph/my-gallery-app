@@ -44,8 +44,8 @@ export default function ArtPieceDetails({
       <Image
         src={currentPiece.imageSource}
         alt={currentPiece.name}
-        width={390}
-        height={390}
+        width={350}
+        height={350}
       />
       <FavouriteButton
         onToggleFavourite={onToggleFavourite}
