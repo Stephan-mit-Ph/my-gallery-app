@@ -40,7 +40,7 @@ export default function ArtPieceDetails({
       >
         Back
       </button>
-      <h1>Title: {currentPiece.name}</h1>
+      <h2>Title: {currentPiece.name}</h2>
       <Image
         src={currentPiece.imageSource}
         alt={currentPiece.name}

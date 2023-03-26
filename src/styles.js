@@ -19,7 +19,12 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: var(--font-family)
+    font-family: var(--font-family);
+    background-color: #FAFAFA;
+  }
+
+  h2 {
+    font-weight: 500;
   }
 
   a {

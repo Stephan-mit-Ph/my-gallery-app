@@ -9,7 +9,8 @@ const StyledNav = styled.nav`
   height: 4rem;
   display: flex;
   flex-direction: row;
-  box-shadow: 0 0 8px;
+  box-shadow:  -15px -15px 30px #e4e4e4,
+             15px 15px 30px #ffffff;
 
 `;
 
