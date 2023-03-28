@@ -6,6 +6,9 @@ const path =
 const StyledButton = styled.button`
   background: transparent;
   border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
 
 const StyledSvg = styled.svg`

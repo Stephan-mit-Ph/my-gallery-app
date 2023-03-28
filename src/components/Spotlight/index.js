@@ -21,19 +21,22 @@ export default function Spotlight({
 
   return (
     <div>
-      <Link href={`/art-pieces/${currentPiece.slug}`}>
-        <Image
-          src={currentPiece.imageSource}
-          alt={currentPiece.name}
-          height={400}
-          width={300}
+      <div className="imageContainer">
+        <Link href={`/art-pieces/${currentPiece.slug}`}>
+          <Image
+            src={currentPiece.imageSource}
+            alt={currentPiece.name}
+            height={400}
+            width={300}
+          />
+        </Link>
+        <FavouriteButton
+          onToggleFavourite={onToggleFavourite}
+          slug={currentPiece.slug}
+          isFavourite={isFavourite}
         />
-      </Link>
-      <FavouriteButton
-        onToggleFavourite={onToggleFavourite}
-        slug={currentPiece.slug}
-        isFavourite={isFavourite}
-      />
+      </div>
+
       <h3 key={currentPiece.slug}>Spotlight: @{currentPiece.artist}</h3>
     </div>
   );

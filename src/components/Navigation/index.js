@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
+import Favorites from "../../../public/assets/favorites.svg";
+import Pieces from "../../../public/assets/pieces.svg";
+import Spotlight from "../../../public/assets/spotlight.svg";
 
 const StyledNav = styled.nav`
   position: fixed;
@@ -9,7 +12,9 @@ const StyledNav = styled.nav`
   height: 4rem;
   display: flex;
   flex-direction: row;
-  box-shadow: 0 0 8px;
+  box-shadow:  -15px -15px 30px #e4e4e4,
+             15px 15px 30px #ffffff;
+
 `;
 
 const StyledNavLink = styled(Link)`
@@ -17,8 +22,11 @@ const StyledNavLink = styled(Link)`
   color: unset;
   text-align: center;
   flex-grow: 1;
-  height: 100%;
-  transition: 0.1s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+  transition: 0.5s ease-in-out;
 
   &:hover {
     background: hotpink;
@@ -29,13 +37,13 @@ export default function Navigation() {
   return (
     <StyledNav>
       <StyledNavLink href="/" aria-label="Go to spotlight art piece">
-        Spotlight
+        <Spotlight />
       </StyledNavLink>
       <StyledNavLink href="/art-pieces/" aria-label="Go to all art pieces">
-        Pieces
+        <Pieces/>
       </StyledNavLink>
       <StyledNavLink href="/favourites/" aria-label="Go to favorite art pieces">
-        Favorites
+        <Favorites/>
       </StyledNavLink>
     </StyledNav>
   );

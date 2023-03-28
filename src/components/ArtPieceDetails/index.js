@@ -40,28 +40,25 @@ export default function ArtPieceDetails({
       >
         Back
       </button>
-      <h1>Title: {currentPiece.name}</h1>
+      <h2>Title: {currentPiece.name}</h2>
       <Image
         src={currentPiece.imageSource}
         alt={currentPiece.name}
-        width={390}
-        height={getNewHeight(
-          currentPiece.dimensions.width,
-          currentPiece.dimensions.height,
-          390
-        )}
+        width={350}
+        height={350}
       />
       <FavouriteButton
         onToggleFavourite={onToggleFavourite}
         isFavourite={isFavourite}
         slug={currentPiece.slug}
       />
-      <ul>
-        <li>Artist: {currentPiece.artist}</li>
-        <li>Year: {currentPiece.year}</li>
-        <li>Genre: {currentPiece.genre}</li>
-      </ul>
       <ColorPalette colors={currentPiece.colors} />
+      <ul>
+        <li><strong>Artist:</strong> {currentPiece.artist}</li>
+        <li><strong>Year:</strong> {currentPiece.year}</li>
+        <li><strong>Genre:</strong> {currentPiece.genre}</li>
+      </ul>
+      
       <CommentForm slug={currentPiece.slug} onSubmitComment={onSubmitComment} />
       <Comments comments={comments} />
     </div>
