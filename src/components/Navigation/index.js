@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
+import Favorites from "../../../public/assets/favorites.svg";
+import Pieces from "../../../public/assets/pieces.svg";
+import Spotlight from "../../../public/assets/spotlight.svg";
 
 const StyledNav = styled.nav`
   position: fixed;
@@ -34,13 +37,13 @@ export default function Navigation() {
   return (
     <StyledNav>
       <StyledNavLink href="/" aria-label="Go to spotlight art piece">
-        Spotlight
+        <Spotlight />
       </StyledNavLink>
       <StyledNavLink href="/art-pieces/" aria-label="Go to all art pieces">
-        Pieces
+        <Pieces/>
       </StyledNavLink>
       <StyledNavLink href="/favourites/" aria-label="Go to favorite art pieces">
-        Favorites
+        <Favorites/>
       </StyledNavLink>
     </StyledNav>
   );

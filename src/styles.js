@@ -36,4 +36,8 @@ export default createGlobalStyle`
     list-style: none;
     padding: 0;
   }
+
+.imageContainer {
+  position: relative;
+}
 `;
